@@ -4,6 +4,7 @@ const messageRouter = require('./routes/messages');
 const app = express();
 const PORT = 7777;
 
+app.use(express.json());
 app.use((req, res, next) => {
     console.log(req.method, req.path);
     next();
