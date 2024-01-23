@@ -1,4 +1,5 @@
 const express = require('express');
+const messageRouter = require('./routes/messages');
 
 const app = express();
 const PORT = 7777;
@@ -8,9 +9,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => {
-    res.json({'mssg': 'Hi'});
-});
+app.use(messageRouter);
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
