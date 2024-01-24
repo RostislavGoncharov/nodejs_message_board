@@ -30,7 +30,7 @@ const addMessage = (req, res) => {
     console.log(messageText);
     channel.messages.push(newMessage);
 
-    res.status(204).json({messageAdded: newMessage});
+    res.status(201).json({messageAdded: newMessage});
 }
 
 module.exports = {
