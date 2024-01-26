@@ -23,9 +23,7 @@ const ChannelList = () => {
 
       return (
         <div>
-            {channels && channels.channels.map((channel) => (
-                <p key={channel.channelId}>{channel.channelName}</p>
-            ))}
+            {channels && channels.channels.map(x => <p key={x.id}>{x.name}</p>)}
         </div>
       );
 };

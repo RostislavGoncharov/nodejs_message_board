@@ -1,19 +1,21 @@
 const messageDb = require('../data/messagesDb');
 
 const getAllChannels = (req, res) => {
-    res.status(200).json({channels: messageDb});
+    res.status(200).json({channels: messageDb.channels});
 };
 
 const getChannelMessages = (req, res) => {
     const id = req.params.id;
-    const channel = messageDb.find(x => x.channelId.toString() === id);
+    // const channel = messageDb.channels.find(x => x.id.toString() === id);
 
-    if (!channel)
-    {
-        return res.status(404).json({error: 'Channel ID not found'});
-    }
+    // if (!channel)
+    // {
+    //     return res.status(404).json({error: 'Channel ID not found'});
+    // }
 
-    res.status(200).json({messages: channel.messages});
+    const messages = messageDb.messages.find(x => x.channelId.toString === id);
+
+    res.status(200).json({messages});
 };
 
 const addMessage = (req, res) => {
@@ -26,9 +28,12 @@ const addMessage = (req, res) => {
         return res.status(404).json({error: 'Channel ID not found'});
     }
 
-    const newMessage = {messageText};
-    console.log(messageText);
-    channel.messages.push(newMessage);
+    const newMessage = {
+        channelId: id,
+        text: messageText,
+    };
+
+    messageDb.messages.push(newMessage);
 
     res.status(201).json({newMessage});
 }
