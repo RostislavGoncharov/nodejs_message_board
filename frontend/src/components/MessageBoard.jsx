@@ -45,7 +45,7 @@ const MessageBoard = () => {
         </div>
 
         <div className="messagePanel">
-          {messages && messages.messages.map(x => <p key={x.channelId}>{x.text}</p>)}
+          {messages && messages.messages.map(x => <p key={x.id}>{x.text}</p>)}
         </div>
       </div>
     );
