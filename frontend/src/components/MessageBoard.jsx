@@ -41,7 +41,7 @@ const MessageBoard = () => {
     return (
       <div className="messageBoard">
         <div className="navPanel">
-          {channels && channels.channels.map(x => <button key={x.id} onClick={() => {getChannelMessages(x.id)}}>{x.name}</button>)}
+          {channels && channels.channels.map(x => <p key={x.id}><button onClick={() => {getChannelMessages(x.id)}}>{x.name}</button></p>)}
         </div>
 
         <div className="messagePanel">
