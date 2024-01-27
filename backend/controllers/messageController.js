@@ -14,14 +14,17 @@ const getChannelMessages = (req, res) => {
 const addMessage = (req, res) => {
     const {messageText} = req.body;
     const id = req.params.id;
-    const channel = messageDb.find(x => x.channelId.toString() === id);
+    const channel = messageDb.channels.find(x => x.id.toString() === id);
 
     if (!channel)
     {
         return res.status(404).json({error: 'Channel ID not found'});
     }
+    
+    const newId = messageDb.messages.length;
 
     const newMessage = {
+        id: newId,
         channelId: id,
         text: messageText,
     };
