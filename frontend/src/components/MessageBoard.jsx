@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const ChannelList = () => {
+const MessageBoard = () => {
     const [channels, setChannels] = useState(null);
 
     useEffect(() => {
@@ -28,4 +28,4 @@ const ChannelList = () => {
       );
 };
 
-export default ChannelList;
+export default MessageBoard;

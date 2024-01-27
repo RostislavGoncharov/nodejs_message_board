@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import ChannelList from './components/ChannelList'
+import MessageBoard from './components/MessageBoard'
 
 function App() {
   return (
     <div>
-      <ChannelList />
+      <MessageBoard />
     </div>
   );
 }
