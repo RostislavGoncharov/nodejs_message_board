@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const MessageBoard = () => {
     const [channels, setChannels] = useState(null);
+    const [messages, setMessages] = useState(null);
 
     useEffect(() => {
         const fetchedChannels = async () => {
@@ -14,18 +15,40 @@ const MessageBoard = () => {
             }
             else
             {
-              console.log("Error");
+              console.log('Error fetching channels');
             }
         };
     
         fetchedChannels();
       }, []);
 
-      return (
-        <div>
-            {channels && channels.channels.map(x => <p key={x.id}>{x.name}</p>)}
+    const getChannelMessages = async (channelId) => {
+      const response = await fetch(`http://localhost:7777/messages/${channelId}`);
+      const json = await response.json();
+
+      if (response.ok)
+      {
+        setMessages(json);
+      }
+      else
+      {
+        console.log('Error fetching messages');
+      }
+
+      console.log(messages);
+    };
+
+    return (
+      <div className="messageBoard">
+        <div className="navPanel">
+          {channels && channels.channels.map(x => <button key={x.id} onClick={() => {getChannelMessages(x.id)}}>{x.name}</button>)}
         </div>
-      );
+
+        <div className="messagePanel">
+          {messages && messages.messages.map(x => <p key={x.channelId}>{x.text}</p>)}
+        </div>
+      </div>
+    );
 };
 
 export default MessageBoard;
