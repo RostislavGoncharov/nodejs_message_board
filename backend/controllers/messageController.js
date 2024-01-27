@@ -6,13 +6,6 @@ const getAllChannels = (req, res) => {
 
 const getChannelMessages = (req, res) => {
     const id = req.params.id;
-    // const channel = messageDb.channels.find(x => x.id.toString() === id);
-
-    // if (!channel)
-    // {
-    //     return res.status(404).json({error: 'Channel ID not found'});
-    // }
-
     const messages = messageDb.messages.find(x => x.channelId.toString === id);
 
     res.status(200).json({messages});
