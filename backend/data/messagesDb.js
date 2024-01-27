@@ -13,6 +13,19 @@ let channels = [
     },
 ];
 
-let messages = [];
+let messages = [
+    {
+        channelId: 0,
+        text: 'Message from Channel 1',
+    },
+    {
+        channelId: 1,
+        text: 'Message from Channel 2',
+    },
+    {
+        channelId: 2,
+        text: 'Message from Channel 3',
+    },
+];
 
 module.exports = { channels, messages };
