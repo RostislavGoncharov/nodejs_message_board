@@ -6,7 +6,7 @@ const getAllChannels = (req, res) => {
 
 const getChannelMessages = (req, res) => {
     const id = req.params.id;
-    const messages = messageDb.messages.find(x => x.channelId.toString === id);
+    const messages = messageDb.messages.filter(x => x.channelId.toString() === id);
 
     res.status(200).json({messages});
 };
