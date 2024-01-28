@@ -60,7 +60,7 @@ const MessageBoard = () => {
             <form onSubmit={handleSubmit} action="">
               <label>New Message: </label>
               <textarea onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
-              {newMessage.trim() != '' && <input type="submit" />}
+              {newMessage.trim() != '' && <input type="submit" value="Post Message"/>}
             </form>
           </div>
         }
