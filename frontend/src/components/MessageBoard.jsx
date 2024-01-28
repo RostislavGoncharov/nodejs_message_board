@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const MessageBoard = () => {
     const [channels, setChannels] = useState(null);
     const [messages, setMessages] = useState(null);
-    const [newMessage, setNewMessage] = useState(null);
+    const [newMessage, setNewMessage] = useState('');
 
     useEffect(() => {
         const fetchedChannels = async () => {
@@ -54,6 +54,7 @@ const MessageBoard = () => {
             <form action="">
               <label>New Message: </label>
               <textarea onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
+              {newMessage.trim() != '' && <input type="submit" />}
             </form>
           </div>
         }
