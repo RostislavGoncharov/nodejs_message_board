@@ -22,7 +22,7 @@ const MessageEditor = ({messages, currentChannelId, setMessages}) => {
           <form onSubmit={handleSubmit} action="">
               <label htmlFor="messageInput">New Message: </label>
               <textarea id="messageInput" onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
-              {newMessage.trim() != '' && <input type="submit" value="Post Message"/>}
+              {<input type="submit" value="Post Message" disabled={newMessage.trim() == ''}/>}
           </form>
         </div>
     );
