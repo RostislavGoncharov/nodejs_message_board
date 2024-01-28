@@ -39,6 +39,12 @@ const MessageBoard = () => {
       console.log(messages);
     };
 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const message = { newMessage };
+      setNewMessage('');
+    }
+
     return (
       <div className="messageBoard">
         <div className="navPanel">
@@ -51,7 +57,7 @@ const MessageBoard = () => {
 
         {messages && 
           <div className="messageEditorPanel">
-            <form action="">
+            <form onSubmit={handleSubmit} action="">
               <label>New Message: </label>
               <textarea onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
               {newMessage.trim() != '' && <input type="submit" />}
