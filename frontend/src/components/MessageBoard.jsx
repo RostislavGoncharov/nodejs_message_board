@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import MessageEditor from "./MessageEditor";
+import MessageView from "./MessageView";
 
 const MessageBoard = () => {
     const [channels, setChannels] = useState(null);
@@ -53,9 +54,7 @@ const MessageBoard = () => {
             }>{x.name}</button></p>)}
         </div>
 
-        <div className="messagePanel">
-          {messages && messages.messages.map(x => <p key={x.id}>{x.text}</p>)}
-        </div>
+        {messages && <MessageView messages={messages} />}
         
         {messages && <MessageEditor messages={messages} currentChannelId={currentChannelId} setMessages={setMessages}/>}
       </div>
