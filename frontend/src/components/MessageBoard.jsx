@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import MessageEditor from "./MessageEditor";
 
 const MessageBoard = () => {
     const [channels, setChannels] = useState(null);
+    const [currentChannelId, setCurrentChannelId] = useState(null);
     const [messages, setMessages] = useState(null);
     const [newMessage, setNewMessage] = useState('');
 
@@ -39,31 +41,23 @@ const MessageBoard = () => {
       console.log(messages);
     };
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      const message = { newMessage };
-      setNewMessage('');
-    }
-
     return (
       <div className="messageBoard">
         <div className="navPanel">
-          {channels && channels.channels.map(x => <p key={x.id}><button onClick={() => {getChannelMessages(x.id)}}>{x.name}</button></p>)}
+          {channels && channels.channels.map(x => 
+            <p key={x.id}><button onClick={() => 
+              {
+                setCurrentChannelId(x.id);
+                getChannelMessages(x.id);
+              }
+            }>{x.name}</button></p>)}
         </div>
 
         <div className="messagePanel">
           {messages && messages.messages.map(x => <p key={x.id}>{x.text}</p>)}
         </div>
-
-        {messages && 
-          <div className="messageEditorPanel">
-            <form onSubmit={handleSubmit} action="">
-              <label>New Message: </label>
-              <textarea onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
-              {newMessage.trim() != '' && <input type="submit" value="Post Message"/>}
-            </form>
-          </div>
-        }
+        
+        {messages && <MessageEditor messages={messages} currentChannelId={currentChannelId} setMessages={setMessages}/>}
       </div>
     );
 };
