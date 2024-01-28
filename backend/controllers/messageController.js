@@ -6,7 +6,7 @@ const getAllChannels = (req, res) => {
 
 const getChannelMessages = (req, res) => {
     const id = req.params.id;
-    const messages = messageDb.messages.filter(x => x.channelId.toString() === id);
+    const messages = messageDb.messages.filter(x => x.channelId === id);
 
     res.status(200).json({messages});
 };
@@ -14,7 +14,7 @@ const getChannelMessages = (req, res) => {
 const addMessage = (req, res) => {
     const {text} = req.body;
     const id = req.params.id;
-    const channel = messageDb.channels.find(x => x.id.toString() === id);
+    const channel = messageDb.channels.find(x => x.id === id);
 
     if (!channel)
     {
@@ -30,6 +30,7 @@ const addMessage = (req, res) => {
     };
 
     messageDb.messages.push(newMessage);
+    console.log(messageDb.messages);
 
     res.status(201).json({newMessage});
 }
