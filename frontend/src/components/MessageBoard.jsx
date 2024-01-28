@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 const MessageBoard = () => {
     const [channels, setChannels] = useState(null);
     const [messages, setMessages] = useState(null);
+    const [newMessage, setNewMessage] = useState(null);
 
     useEffect(() => {
         const fetchedChannels = async () => {
@@ -47,6 +48,15 @@ const MessageBoard = () => {
         <div className="messagePanel">
           {messages && messages.messages.map(x => <p key={x.id}>{x.text}</p>)}
         </div>
+
+        {messages && 
+          <div className="messageEditorPanel">
+            <form action="">
+              <label>New Message: </label>
+              <textarea onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
+            </form>
+          </div>
+        }
       </div>
     );
 };
