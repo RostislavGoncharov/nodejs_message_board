@@ -12,7 +12,7 @@ const getChannelMessages = (req, res) => {
 };
 
 const addMessage = (req, res) => {
-    const {messageText} = req.body;
+    const {text} = req.body;
     const id = req.params.id;
     const channel = messageDb.channels.find(x => x.id.toString() === id);
 
@@ -26,7 +26,7 @@ const addMessage = (req, res) => {
     const newMessage = {
         id: newId,
         channelId: id,
-        text: messageText,
+        text: text,
     };
 
     messageDb.messages.push(newMessage);
