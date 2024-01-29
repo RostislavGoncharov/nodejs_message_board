@@ -1,3 +1,5 @@
+// This is the parent component for the other components of the message board.
+
 import { useState, useEffect } from "react";
 import MessageEditor from "./MessageEditor";
 import MessageView from "./MessageView";
@@ -9,6 +11,7 @@ const MessageBoard = () => {
     const [messages, setMessages] = useState(null);
     const [newMessage, setNewMessage] = useState('');
 
+    // Fetching the channels once upon loading the app.
     useEffect(() => {
         const fetchedChannels = async () => {
             const response = await fetch('http://localhost:7777/channels');

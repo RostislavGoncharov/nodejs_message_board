@@ -1,3 +1,5 @@
+// This component lists all messages in the currently selected channel.
+
 const MessageView = ({messages}) => {
     return (
         <div className="messagePanel">

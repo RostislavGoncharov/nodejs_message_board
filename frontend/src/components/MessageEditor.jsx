@@ -1,8 +1,13 @@
+// This component allows the user to post new messages.
+
 const MessageEditor = ({messages, currentChannelId, setMessages, newMessage, setNewMessage}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const message = { id: 0 + messages.messages.length, channelId: currentChannelId, text: newMessage };
-        setNewMessage('');
+
+        // The id is generated at random and used as the key when listing messages in MessageView.
+        // This isn't perfect (and wouldn't be needed with a real database) but it works well enough for this purpose.
+        const newId = Math.floor(Math.random() * 1000);
+        const message = { id: newId, channelId: currentChannelId, text: newMessage };
     
         await fetch(`http://localhost:7777/${currentChannelId}`, {
           method: 'POST',

@@ -1,3 +1,5 @@
+// This component lists all channels in the database as buttons.
+
 const ChannelList = ({setMessages, channels, setCurrentChannelId, setNewMessage}) => {
     const getChannelMessages = async (channelId) => {
         const response = await fetch(`http://localhost:7777/messages/${channelId}`);
