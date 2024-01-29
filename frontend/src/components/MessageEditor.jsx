@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const MessageEditor = ({messages, currentChannelId, setMessages, newMessage, setNewMessage}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();

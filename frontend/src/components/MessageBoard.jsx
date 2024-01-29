@@ -27,34 +27,8 @@ const MessageBoard = () => {
         fetchedChannels();
       }, []);
 
-    // const getChannelMessages = async (channelId) => {
-    //   const response = await fetch(`http://localhost:7777/messages/${channelId}`);
-    //   const json = await response.json();
-
-    //   if (response.ok)
-    //   {
-    //     setMessages(json);
-    //   }
-    //   else
-    //   {
-    //     console.log('Error fetching messages');
-    //   }
-
-    //   console.log(messages);
-    // };
-
     return (
       <div className="messageBoard">
-        {/* <div className="navPanel">
-          {channels && channels.channels.map(x => 
-            <p key={x.id}><button onClick={() => 
-              {
-                setCurrentChannelId(x.id);
-                getChannelMessages(x.id);
-              }
-            }>{x.name}</button></p>)}
-        </div> */}
-
         {channels && <ChannelList setMessages={setMessages} 
                                   channels={channels} 
                                   setCurrentChannelId={setCurrentChannelId}
