@@ -37,13 +37,15 @@ const MessageBoard = () => {
                                   setCurrentChannelId={setCurrentChannelId}
                                   setNewMessage={setNewMessage} />}
 
-        {messages && <MessageView messages={messages} />}
+        <div className="messageBlock">
+          {messages && <MessageView messages={messages} />}
         
-        {messages && <MessageEditor messages={messages} 
-                                    currentChannelId={currentChannelId} 
-                                    setMessages={setMessages}
-                                    newMessage={newMessage}
-                                    setNewMessage={setNewMessage}/>}
+          {messages && <MessageEditor messages={messages} 
+                                      currentChannelId={currentChannelId} 
+                                      setMessages={setMessages}
+                                      newMessage={newMessage}
+                                      setNewMessage={setNewMessage}/>}
+        </div>
       </div>
     );
 };
