@@ -7,7 +7,6 @@ const MessageBoard = () => {
     const [channels, setChannels] = useState(null);
     const [currentChannelId, setCurrentChannelId] = useState(null);
     const [messages, setMessages] = useState(null);
-    const [newMessage, setNewMessage] = useState('');
 
     useEffect(() => {
         const fetchedChannels = async () => {
