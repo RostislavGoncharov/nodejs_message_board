@@ -21,9 +21,8 @@ const MessageEditor = ({messages, currentChannelId, setMessages, newMessage, set
 
     return (
         <div className="messageEditorPanel">
-          <form onSubmit={handleSubmit} action="">
-              <label htmlFor="messageInput">New Message: </label>
-              <textarea id="messageInput" value={newMessage} onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
+          <form className="messageInputForm" onSubmit={handleSubmit}>
+              <textarea placeholder="Type Your Message..." value={newMessage} onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
               {<input type="submit" value="Post Message" disabled={newMessage.trim() == ''}/>}
           </form>
         </div>
