@@ -11,8 +11,6 @@ const ChannelList = ({messages, setMessages, channels, setCurrentChannelId, setN
         {
           console.log('Error fetching messages');
         }
-  
-        console.log(messages);
       };
     
     return (
