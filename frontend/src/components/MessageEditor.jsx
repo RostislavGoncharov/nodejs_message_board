@@ -15,13 +15,14 @@ const MessageEditor = ({messages, currentChannelId, setMessages}) => {
         });
     
         setMessages({messages: [...messages.messages, message]});
+        setNewMessage('');
       }
 
     return (
         <div className="messageEditorPanel">
           <form onSubmit={handleSubmit} action="">
               <label htmlFor="messageInput">New Message: </label>
-              <textarea id="messageInput" onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
+              <textarea id="messageInput" value={newMessage} onChange={(e) => {setNewMessage(e.target.value)}}></textarea>
               {<input type="submit" value="Post Message" disabled={newMessage.trim() == ''}/>}
           </form>
         </div>
