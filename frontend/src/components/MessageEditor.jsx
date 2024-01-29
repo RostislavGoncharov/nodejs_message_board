@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-const MessageEditor = ({messages, currentChannelId, setMessages}) => {
-    const [newMessage, setNewMessage] = useState('');
-
+const MessageEditor = ({messages, currentChannelId, setMessages, newMessage, setNewMessage}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const message = { id: 0 + messages.messages.length, channelId: currentChannelId, text: newMessage };

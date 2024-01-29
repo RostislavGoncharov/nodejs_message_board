@@ -7,6 +7,7 @@ const MessageBoard = () => {
     const [channels, setChannels] = useState(null);
     const [currentChannelId, setCurrentChannelId] = useState(null);
     const [messages, setMessages] = useState(null);
+    const [newMessage, setNewMessage] = useState('');
 
     useEffect(() => {
         const fetchedChannels = async () => {
@@ -64,7 +65,9 @@ const MessageBoard = () => {
         
         {messages && <MessageEditor messages={messages} 
                                     currentChannelId={currentChannelId} 
-                                    setMessages={setMessages}/>}
+                                    setMessages={setMessages}
+                                    newMessage={newMessage}
+                                    setNewMessage={setNewMessage}/>}
       </div>
     );
 };
