@@ -1,4 +1,4 @@
-const ChannelList = ({messages, setMessages, channels, setCurrentChannelId, setNewMessage}) => {
+const ChannelList = ({setMessages, channels, setCurrentChannelId, setNewMessage}) => {
     const getChannelMessages = async (channelId) => {
         const response = await fetch(`http://localhost:7777/messages/${channelId}`);
         const json = await response.json();

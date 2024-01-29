@@ -55,12 +55,10 @@ const MessageBoard = () => {
             }>{x.name}</button></p>)}
         </div> */}
 
-        {channels && <ChannelList 
-                      messages={messages} 
-                      setMessages={setMessages} 
-                      channels={channels} 
-                      setCurrentChannelId={setCurrentChannelId}
-                      setNewMessage={setNewMessage} />}
+        {channels && <ChannelList setMessages={setMessages} 
+                                  channels={channels} 
+                                  setCurrentChannelId={setCurrentChannelId}
+                                  setNewMessage={setNewMessage} />}
 
         {messages && <MessageView messages={messages} />}
         
