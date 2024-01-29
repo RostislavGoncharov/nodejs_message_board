@@ -1,4 +1,4 @@
-const ChannelList = ({messages, setMessages, channels, setCurrentChannelId}) => {
+const ChannelList = ({messages, setMessages, channels, setCurrentChannelId, setNewMessage}) => {
     const getChannelMessages = async (channelId) => {
         const response = await fetch(`http://localhost:7777/messages/${channelId}`);
         const json = await response.json();
@@ -22,6 +22,7 @@ const ChannelList = ({messages, setMessages, channels, setCurrentChannelId}) => 
               {
                 setCurrentChannelId(x.id);
                 getChannelMessages(x.id);
+                setNewMessage('');
               }
             }>{x.name}</button></p>)}
       </div>

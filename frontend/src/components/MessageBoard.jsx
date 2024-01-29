@@ -59,7 +59,8 @@ const MessageBoard = () => {
                       messages={messages} 
                       setMessages={setMessages} 
                       channels={channels} 
-                      setCurrentChannelId={setCurrentChannelId} />}
+                      setCurrentChannelId={setCurrentChannelId}
+                      setNewMessage={setNewMessage} />}
 
         {messages && <MessageView messages={messages} />}
         
