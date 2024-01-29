@@ -1,3 +1,5 @@
+// This controller performs all database operations.
+
 const messageDb = require('../data/messagesDb');
 
 const getAllChannels = (req, res) => {

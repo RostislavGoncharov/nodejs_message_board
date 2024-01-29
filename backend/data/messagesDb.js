@@ -1,3 +1,5 @@
+// This is the in-memory database.
+
 let channels = [
     {
         id: '0',

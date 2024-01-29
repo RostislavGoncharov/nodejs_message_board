@@ -1,3 +1,5 @@
+// This is the router used by the Express app.
+
 const express = require('express');
 const messageController = require('../controllers/messageController');
 
