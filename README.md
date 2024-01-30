@@ -23,10 +23,13 @@ The frontend structure is as follows:
 1. Navigate to backend/, run `npm install`, then run `npm start`. The backend server will start on http://localhost:7777.
 2. Navigate to frontend/, run `npm install`, then run `npm run dev`. The React app will start on http://localhost:5173.
 
-## Things That Don't Match the Specification
+## Things That May Not Match the Specification
 - The message object contains not only the text, but also the message's Id along with the Id of the channel it belongs to.
   I used those Ids essentially as primary/foreign keys for the in-memory database, as well as for setting the key property 
   when listing channels/messages in React. I assume those properties won't be needed with an actual database (as they will 
   be generated automatically); 
+
+- The styling is minimal (just enough to tell the panels apart) and the content is placed at the top of the page rather than 
+  covering all of it. Please note the app is not mobile-friendly;
 
 - I hope that otherwise I've followed the specs properly.
