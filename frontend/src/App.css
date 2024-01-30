@@ -1,5 +1,6 @@
 #root {
-  width: 60%;
+  width: 80%;
+  height: 50%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -16,8 +17,9 @@
 .messageBlock {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   width: 70%; 
+  gap: 20px;
 }
 
 .messageInputForm {
@@ -31,6 +33,7 @@
   border-style: solid;
   border-color: aliceblue;
   border-width: 1px;
+  min-height: 40%;
 }
 
 .navPanel {
